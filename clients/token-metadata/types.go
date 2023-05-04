@@ -51,6 +51,14 @@ type CreateMetadataAccountArgsV2 struct {
 	IsMutable bool
 }
 
+type CreateMetadataAccountArgsV3 struct {
+	// Note that unique metadatas are disabled for now.
+	Data DataV2
+
+	// Whether you want your metadata to be updateable in the future.
+	IsMutable bool
+}
+
 func (obj CreateMetadataAccountArgsV2) MarshalWithEncoder(encoder *ag_binary.Encoder) (err error) {
 	// Serialize `Data` param:
 	err = encoder.Encode(obj.Data)

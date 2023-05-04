@@ -133,6 +133,8 @@ const (
 
 	// Revoke account to call [verify_collection] on this NFT
 	Instruction_RevokeCollectionAuthority
+
+	Instruction_CreateMetadataAccountV3
 )
 
 // InstructionIDToName returns the name of the instruction given its ID.
@@ -172,6 +174,8 @@ func InstructionIDToName(id uint8) string {
 		return "UpdateMetadataAccountV2"
 	case Instruction_CreateMetadataAccountV2:
 		return "CreateMetadataAccountV2"
+	case Instruction_CreateMetadataAccountV3:
+		return "CreateMetadataAccountV3"
 	case Instruction_CreateMasterEditionV3:
 		return "CreateMasterEditionV3"
 	case Instruction_VerifyCollection:
@@ -258,6 +262,9 @@ var InstructionImplDef = ag_binary.NewVariantDefinition(
 		},
 		{
 			"CreateMetadataAccountV2", (*CreateMetadataAccountV2)(nil),
+		},
+		{
+			"CreateMetadataAccountV3", (*CreateMetadataAccountV3)(nil),
 		},
 		{
 			"CreateMasterEditionV3", (*CreateMasterEditionV3)(nil),

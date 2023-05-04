@@ -1,0 +1,859 @@
+{
+  "version": "1.1.0",
+  "name": "mpl_token_metadata",
+  "instructions": [],
+  "types": [
+    {
+      "name": "MintPrintingTokensViaTokenArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "supply",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetReservationListArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reservations",
+            "type": {
+              "vec": {
+                "defined": "Reservation"
+              }
+            }
+          },
+          {
+            "name": "totalReservationSpots",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "offset",
+            "type": "u64"
+          },
+          {
+            "name": "totalSpotOffset",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateMetadataAccountArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "data",
+            "type": {
+              "option": {
+                "defined": "Data"
+              }
+            }
+          },
+          {
+            "name": "updateAuthority",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "primarySaleHappened",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateMetadataAccountArgsV2",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "data",
+            "type": {
+              "option": {
+                "defined": "DataV2"
+              }
+            }
+          },
+          {
+            "name": "updateAuthority",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "primarySaleHappened",
+            "type": {
+              "option": "bool"
+            }
+          },
+          {
+            "name": "isMutable",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateMetadataAccountArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "data",
+            "type": {
+              "defined": "Data"
+            }
+          },
+          {
+            "name": "isMutable",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateMetadataAccountArgsV2",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "data",
+            "type": {
+              "defined": "DataV2"
+            }
+          },
+          {
+            "name": "isMutable",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateMasterEditionArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "maxSupply",
+            "type": {
+              "option": "u64"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MintNewEditionFromMasterEditionViaTokenArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "edition",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ApproveUseAuthorityArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "numberOfUses",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UtilizeArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "numberOfUses",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Data",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "sellerFeeBasisPoints",
+            "type": "u16"
+          },
+          {
+            "name": "creators",
+            "type": {
+              "option": {
+                "vec": {
+                  "defined": "Creator"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "DataV2",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "sellerFeeBasisPoints",
+            "type": "u16"
+          },
+          {
+            "name": "creators",
+            "type": {
+              "option": {
+                "vec": {
+                  "defined": "Creator"
+                }
+              }
+            }
+          },
+          {
+            "name": "collection",
+            "type": {
+              "option": {
+                "defined": "Collection"
+              }
+            }
+          },
+          {
+            "name": "uses",
+            "type": {
+              "option": {
+                "defined": "Uses"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Uses",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "useMethod",
+            "type": {
+              "defined": "UseMethod"
+            }
+          },
+          {
+            "name": "remaining",
+            "type": "u64"
+          },
+          {
+            "name": "total",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UseAuthorityRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "allowedUses",
+            "type": "u64"
+          },
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Collection",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "verified",
+            "type": "bool"
+          },
+          {
+            "name": "key",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metadata",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "updateAuthority",
+            "type": "publicKey"
+          },
+          {
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "data",
+            "type": {
+              "defined": "Data"
+            }
+          },
+          {
+            "name": "primarySaleHappened",
+            "type": "bool"
+          },
+          {
+            "name": "isMutable",
+            "type": "bool"
+          },
+          {
+            "name": "editionNonce",
+            "type": {
+              "option": "u8"
+            }
+          },
+          {
+            "name": "tokenStandard",
+            "type": {
+              "option": {
+                "defined": "TokenStandard"
+              }
+            }
+          },
+          {
+            "name": "collection",
+            "type": {
+              "option": {
+                "defined": "Collection"
+              }
+            }
+          },
+          {
+            "name": "uses",
+            "type": {
+              "option": {
+                "defined": "Uses"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MasterEditionV2",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "supply",
+            "type": "u64"
+          },
+          {
+            "name": "maxSupply",
+            "type": {
+              "option": "u64"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MasterEditionV1",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "supply",
+            "type": "u64"
+          },
+          {
+            "name": "maxSupply",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "printingMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "oneTimePrintingAuthorizationMint",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Edition",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "parent",
+            "type": "publicKey"
+          },
+          {
+            "name": "edition",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Creator",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "publicKey"
+          },
+          {
+            "name": "verified",
+            "type": "bool"
+          },
+          {
+            "name": "share",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReservationListV2",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "masterEdition",
+            "type": "publicKey"
+          },
+          {
+            "name": "supplySnapshot",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "reservations",
+            "type": {
+              "vec": {
+                "defined": "Reservation"
+              }
+            }
+          },
+          {
+            "name": "totalReservationSpots",
+            "type": "u64"
+          },
+          {
+            "name": "currentReservationSpots",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reservation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "publicKey"
+          },
+          {
+            "name": "spotsRemaining",
+            "type": "u64"
+          },
+          {
+            "name": "totalSpots",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReservationListV1",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "masterEdition",
+            "type": "publicKey"
+          },
+          {
+            "name": "supplySnapshot",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "reservations",
+            "type": {
+              "vec": {
+                "defined": "ReservationV1"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReservationV1",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "publicKey"
+          },
+          {
+            "name": "spotsRemaining",
+            "type": "u8"
+          },
+          {
+            "name": "totalSpots",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EditionMarker",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": {
+              "defined": "Key"
+            }
+          },
+          {
+            "name": "ledger",
+            "type": {
+              "array": [
+                "u8",
+                31
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MetadataInstruction",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "CreateMetadataAccount",
+            "fields": [
+              {
+                "defined": "CreateMetadataAccountArgs"
+              }
+            ]
+          },
+          {
+            "name": "UpdateMetadataAccount",
+            "fields": [
+              {
+                "defined": "UpdateMetadataAccountArgs"
+              }
+            ]
+          },
+          {
+            "name": "DeprecatedCreateMasterEdition",
+            "fields": [
+              {
+                "defined": "CreateMasterEditionArgs"
+              }
+            ]
+          },
+          {
+            "name": "DeprecatedMintNewEditionFromMasterEditionViaPrintingToken"
+          },
+          {
+            "name": "UpdatePrimarySaleHappenedViaToken"
+          },
+          {
+            "name": "DeprecatedSetReservationList",
+            "fields": [
+              {
+                "defined": "SetReservationListArgs"
+              }
+            ]
+          },
+          {
+            "name": "DeprecatedCreateReservationList"
+          },
+          {
+            "name": "SignMetadata"
+          },
+          {
+            "name": "DeprecatedMintPrintingTokensViaToken",
+            "fields": [
+              {
+                "defined": "MintPrintingTokensViaTokenArgs"
+              }
+            ]
+          },
+          {
+            "name": "DeprecatedMintPrintingTokens",
+            "fields": [
+              {
+                "defined": "MintPrintingTokensViaTokenArgs"
+              }
+            ]
+          },
+          {
+            "name": "CreateMasterEdition",
+            "fields": [
+              {
+                "defined": "CreateMasterEditionArgs"
+              }
+            ]
+          },
+          {
+            "name": "MintNewEditionFromMasterEditionViaToken",
+            "fields": [
+              {
+                "defined": "MintNewEditionFromMasterEditionViaTokenArgs"
+              }
+            ]
+          },
+          {
+            "name": "ConvertMasterEditionV1ToV2"
+          },
+          {
+            "name": "MintNewEditionFromMasterEditionViaVaultProxy",
+            "fields": [
+              {
+                "defined": "MintNewEditionFromMasterEditionViaTokenArgs"
+              }
+            ]
+          },
+          {
+            "name": "PuffMetadata"
+          },
+          {
+            "name": "UpdateMetadataAccountV2",
+            "fields": [
+              {
+                "defined": "UpdateMetadataAccountArgsV2"
+              }
+            ]
+          },
+          {
+            "name": "CreateMetadataAccountV2",
+            "fields": [
+              {
+                "defined": "CreateMetadataAccountArgsV2"
+              }
+            ]
+          },
+          {
+            "name": "CreateMasterEditionV3",
+            "fields": [
+              {
+                "defined": "CreateMasterEditionArgs"
+              }
+            ]
+          },
+          {
+            "name": "VerifyCollection"
+          },
+          {
+            "name": "Utilize",
+            "fields": [
+              {
+                "defined": "UtilizeArgs"
+              }
+            ]
+          },
+          {
+            "name": "ApproveUseAuthority",
+            "fields": [
+              {
+                "defined": "ApproveUseAuthorityArgs"
+              }
+            ]
+          },
+          {
+            "name": "RevokeUseAuthority"
+          },
+          {
+            "name": "UnverifyCollection"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Key",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Uninitialized"
+          },
+          {
+            "name": "EditionV1"
+          },
+          {
+            "name": "MasterEditionV1"
+          },
+          {
+            "name": "ReservationListV1"
+          },
+          {
+            "name": "MetadataV1"
+          },
+          {
+            "name": "ReservationListV2"
+          },
+          {
+            "name": "MasterEditionV2"
+          },
+          {
+            "name": "EditionMarker"
+          },
+          {
+            "name": "UseAuthorityRecord"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UseMethod",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Burn"
+          },
+          {
+            "name": "Multiple"
+          },
+          {
+            "name": "Single"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokenStandard",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "NonFungible"
+          },
+          {
+            "name": "FungibleAsset"
+          },
+          {
+            "name": "Fungible"
+          },
+          {
+            "name": "NonFungibleEdition"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "origin": "shank",
+    "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+  }
+}
