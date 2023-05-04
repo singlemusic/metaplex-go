@@ -1,4 +1,4 @@
-module github.com/gagliardetto/metaplex-go
+module github.com/singlemusic/metaplex-go
 
 go 1.16
 
