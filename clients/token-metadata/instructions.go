@@ -134,6 +134,22 @@ const (
 	// Revoke account to call [verify_collection] on this NFT
 	Instruction_RevokeCollectionAuthority
 
+	Instruction_SetAndVerifyCollection
+
+	Instruction_FreezeDelegatedAccount
+
+	Instruction_ThawDelegatedAccount
+
+	Instruction_RemoveCreatorVerification
+
+	Instruction_BurnNft
+
+	Instruction_VerifySizedCollectionItem
+
+	Instruction_UnverifySizedCollectionItem
+
+	Instruction_SetAndVerifySizedCollectionItem
+
 	Instruction_CreateMetadataAccountV3
 )
 
