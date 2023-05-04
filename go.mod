@@ -1,5 +1,7 @@
 module github.com/singlemusic/metaplex-go
 
+replace github.com/gagliardetto/metaplex-go => ./
+
 go 1.16
 
 require (
